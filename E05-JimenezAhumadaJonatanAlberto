@@ -1,0 +1,27 @@
+# E05-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CalculoTiempoEjecucion
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            TimeSpan parar;
+            TimeSpan iniciar = new TimeSpan(DateTime.Now.Ticks);
+            double suma = 0;
+            for (double i = 1; i <= 1000000; i++)
+            {
+                suma += i;
+            }
+            parar = new TimeSpan(DateTime.Now.Ticks);            
+            Console.WriteLine("La suma del 1 hasta 1,000,000 es: {0}", suma);
+            Console.WriteLine("Tiempo de Ejecucion: {0} Milisegundos",parar.Subtract(iniciar).TotalMilliseconds);
+            Console.ReadKey();
+        }
+    }
+}
